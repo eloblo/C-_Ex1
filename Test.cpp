@@ -5,7 +5,8 @@ using namespace ariel;
 #include <string>
 using namespace std;
 
-
+//test of we recive the proper body part of the snowman to it's number
+//compares popular and basic snowman from the excersize page
 TEST_CASE("Good snowman code") {
     CHECK(snowman(11114411) == string(" _===_ \n (.,.) \n ( : ) \n ( : ) "));
     CHECK(snowman(11111111) == string(" _===_ \n (.,.) \n<( : )>\n ( : ) "));
@@ -22,14 +23,19 @@ TEST_CASE("Good snowman code") {
     
 }
 
+//check for exception with bad snowman build codes
 TEST_CASE("Bad snowman code") {
+    //too short build
     CHECK_THROWS(snowman(555));
     CHECK_THROWS(snowman(0));
     CHECK_THROWS(snowman(1234123));
+    //too long build
     CHECK_THROWS(snowman(123412341));
+    //negatives
     CHECK_THROWS(snowman(-12));
     CHECK_THROWS(snowman(-1234123));
     CHECK_THROWS(snowman(-12341234));
+    //invalid numbers in build
     CHECK_THROWS(snowman(12345678));
     CHECK_THROWS(snowman(11110011));
     
